@@ -1,0 +1,75 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\Bayram Utku\\Desktop\\zkone\\assignment0\\contracts\\HelloWorld.sol": {
+      "lastModificationDate": 1645611826264,
+      "contentHash": "4b6671a9dd44164102e441bed2ee4225",
+      "sourceName": "contracts/HelloWorld.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "HelloWorld"
+      ]
+    },
+    "C:\\Users\\Bayram Utku\\Desktop\\zkone\\assignment0\\contracts\\MultipleStoringTest.sol": {
+      "lastModificationDate": 1645610191051,
+      "contentHash": "6756c2356923fe9187a48408f12c3157",
+      "sourceName": "contracts/MultipleStoringTest.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "StoreAddress"
+      ]
+    }
+  }
+}
