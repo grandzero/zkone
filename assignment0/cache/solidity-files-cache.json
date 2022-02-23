@@ -37,8 +37,8 @@
       ]
     },
     "C:\\Users\\Bayram Utku\\Desktop\\zkone\\assignment0\\contracts\\MultipleStoringTest.sol": {
-      "lastModificationDate": 1645610191051,
-      "contentHash": "6756c2356923fe9187a48408f12c3157",
+      "lastModificationDate": 1645612128543,
+      "contentHash": "08cd61a78902e2ce59ef57e60069ae87",
       "sourceName": "contracts/MultipleStoringTest.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -68,7 +68,7 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "StoreAddress"
+        "MultipleStoringTest"
       ]
     }
   }

@@ -2,7 +2,7 @@
 
 pragma solidity ^0.8.0;
 
-contract StoreAddress {
+contract MultipleStoringTest {
     address[] public first;
     mapping(address => bool) public second;
     mapping(address => bool) public third;
