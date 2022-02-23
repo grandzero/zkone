@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 const keccak256 = require("keccak256");
 const { MerkleTree } = require('merkletreejs')
-describe("Merkle Proof", function () {
+describe("Merkle Proof Contract", function () {
   let mpc; // MerkleProofCost
   let addresses; // Address array 
   let leaves; // Will be used in tests 

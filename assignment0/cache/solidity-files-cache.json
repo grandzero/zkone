@@ -72,8 +72,8 @@
       ]
     },
     "C:\\Users\\Bayram Utku\\Desktop\\zkone\\assignment0\\contracts\\MerkleProofCost.sol": {
-      "lastModificationDate": 1645634321792,
-      "contentHash": "36533635388bf5233e60373aabbca097",
+      "lastModificationDate": 1645642600209,
+      "contentHash": "5629f97a9fcd51226b4404b5603e68be",
       "sourceName": "contracts/MerkleProofCost.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -141,6 +141,43 @@
       ],
       "artifacts": [
         "MerkleProof"
+      ]
+    },
+    "C:\\Users\\Bayram Utku\\Desktop\\zkone\\assignment0\\contracts\\BallotExtended.sol": {
+      "lastModificationDate": 1645648376239,
+      "contentHash": "86b5d6a323083d56020547337b195566",
+      "sourceName": "contracts/BallotExtended.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "BallotExtended"
       ]
     }
   }

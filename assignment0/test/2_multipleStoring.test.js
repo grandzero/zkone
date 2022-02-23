@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("Multiple Storing Tests", function () {
+describe("Multiple Storing Tests Contract", function () {
   let mst;
   let addressList;
   let gasResults=[];
