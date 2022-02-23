@@ -3,16 +3,21 @@ const { ethers } = require("hardhat");
 const keccak256 = require("keccak256");
 const { MerkleTree } = require('merkletreejs')
 describe("Extended Ballot Contract", function () {
-  let mpc; // MerkleProofCost
+  let ballot; // MerkleProofCost
   let addresses; // Address array 
   let leaves; // Will be used in tests 
   let tree; // Tree object
   let root; // Root hash
   let gasUsage = {};
   beforeEach(async function(){
-    const MerkleProofCost = await ethers.getContractFactory("MerkleProofCost");
-    mpc = await MerkleProofCost.deploy();
-    await mpc.deployed();
+    const BallotExtended = await ethers.getContractFactory("BallotExtended");
+    //let bytes32 = ethers.utils.formatBytes32String(text)
+    ballot = await BallotExtended.deploy([
+      ethers.utils.formatBytes32String("Proposal 1"),
+      ethers.utils.formatBytes32String("Proposal 2"),
+      ethers.utils.formatBytes32String("Proposal 3")
+    ]);
+    await ballot.deployed();
 
 
     let [owner, addr1, addr2, addr3, addr4, addr5, addr6, ...addrObjects] = await ethers.getSigners();
@@ -23,7 +28,15 @@ describe("Extended Ballot Contract", function () {
   });
 
   it("Should store users by storing merkle root hash", async function () {
-
+    let tx = await ballot.setVerifiedHashRoot(root);
+    
+    let receipt = await tx.wait();
+    const gasUsed = receipt.cumulativeGasUsed.toString();
+    gasUsage.setVerifiedHashRoot = gasUsed;
+    
+    // Get saved hashRoot
+    let hashRoot = await ballot.verifiedHashRoot();
+    expect(hashRoot).to.equal(root);
   });
 
   
