@@ -9,8 +9,10 @@ describe("Multiple Storing Tests", function () {
   beforeEach(async function(){
     const MST = await ethers.getContractFactory("MultipleStoringTest");
     mst = await MST.deploy();
-    await mst.deployed();
-
+    const deploymentData = mst.interface.encodeDeploy();
+    const estimatedGas = await ethers.provider.estimateGas({ data: deploymentData });
+    
+    gasResults.deploy = estimatedGas.toString();
     // Signer address objects
     let [owner,...addrObjects] = await ethers.getSigners();
     
