@@ -79,23 +79,43 @@ describe("Extended Ballot Contract", function () {
 
   
   it("Should give one user vote right and user should be able to vote successfully", async function () {
+    let tx = await ballot.giveRightToVote(addr1.address);
+    await tx.wait();
 
+    tx = await ballot.connect(addr1).vote(1,[]);
+    receipt = await tx.wait();
+    gasUsed = receipt.cumulativeGasUsed.toString();
+    gasUsage.vote_particular_user = gasUsed;
+
+    let result = await ballot.proposals(1);
+    expect(result.voteCount).to.equal(1);
   });
 
   
   it("Should no one able to vote", async function () {
-
+    await expect(ballot.connect(addr1).vote(1,[])).to.be.revertedWith("Has no right to vote");
   });
 
   
   it("Should give batch vote right, two address vote successfully and try to give voteright again (revert)", async function () {
+    let tx = await ballot.setVerifiedHashRoot(root);
+    let proof1 = tree.getHexProof(keccak256(addresses[0]));
+    let proof2 = tree.getHexProof(keccak256(addresses[1]));
+    await tx.wait();
 
+    tx = await ballot.connect(addrObjects[0]).vote(1,proof1);
+    let receipt = await tx.wait();
+    let gasUsed = receipt.cumulativeGasUsed.toString();
+    gasUsage.vote_1_again = gasUsed;
+
+    tx = await ballot.connect(addrObjects[1]).vote(1,proof2);
+    receipt = await tx.wait();
+    gasUsed = receipt.cumulativeGasUsed.toString();
+    gasUsage.vote_2_again = gasUsed;
+
+    await expect(ballot.giveRightToVote(addresses[0])).to.be.revertedWith("The voter already voted.");
   });
 
-  
-  it("Should give one vote right, address vote successfully and give batch vote right and try vote again (revert)", async function () {
-
-  });
 
   it("Compare all gas usages", function(){
     console.table(gasUsage);
